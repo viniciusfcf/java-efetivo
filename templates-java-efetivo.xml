@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="Cria uma classe utilizando Builder" enabled="true" name="vNewBuilder">${package_declaration}
+
+public class ${class_name} ${line_selection}${cursor} {
+
+	private ${Tipo1} ${nome1};
+	private ${Tipo2} ${nome2};
+
+	public static class Builder {
+	
+		private ${Tipo1} ${nome1};
+		private ${Tipo2} ${nome2};
+
+
+		public Builder() {
+		}
+
+		public Builder ${nome1}(${Tipo1} ${nome1}) {
+			this.${nome1} = ${nome1};
+			return this;
+		}
+
+		public Builder ${nome2}(${Tipo2} ${nome2}) {
+			this.${nome2} = ${nome2};
+			return this;
+		}
+
+		public ${class_name} build() {
+			return new ${class_name}(this);
+		}
+	}
+
+	private ${class_name}(Builder builder) {
+		this.${nome1} = builder.${nome1};
+		this.${nome2} = builder.${nome2};
+	}
+
+
+}</template><template autoinsert="true" context="java" deleted="false" description="Cria uma classe utilizando static factory" enabled="true" name="vNewClass">${package_declaration}
+
+public class ${class_name} ${line_selection}${cursor} {
+
+	private ${Tipo1} ${nome1};
+
+	private ${Tipo2} ${nome2};
+
+	private ${class_name}(${Tipo1} ${nome1}, ${Tipo2} ${nome2}) {
+		this.${nome1} = ${nome1};
+		this.${nome2} = ${nome2};
+	}
+
+	public static ${class_name} of(${Tipo1} ${nome1}, ${Tipo2} ${nome2}) {
+		return new ${class_name}(${nome1}, ${nome2});
+	}
+
+
+}</template><template autoinsert="true" context="java" deleted="false" description="Cria um Singleton" enabled="true" name="vNewSingleton">${package_declaration}
+
+public class ${class_name} ${line_selection}${cursor} {
+
+	public static final ${class_name} INSTANCE = new ${class_name}();
+
+
+	private ${class_name}() {
+
+	}
+
+
+
+}</template><template autoinsert="true" context="java" deleted="false" description="Cria um singleton utilizando um Enum" enabled="true" name="vNewSingletonEnum">${package_declaration}
+
+public enum ${class_name} ${line_selection}${cursor} {
+
+	INSTANCE;
+
+}</template></templates>
