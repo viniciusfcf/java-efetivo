@@ -1,9 +1,44 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="Cria uma classe utilizando Builder" enabled="true" name="vNewBuilder">${package_declaration}
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="Cria um método equals" enabled="true" name="vEqualsHashcode">/*
+ * Propriedades deste método:
+ * 1. Reflexivo
+ * 2. Simétrico
+ * 3. Transitivo
+ * 4. Consistente
+ * 5. other == null? return false
+ *
+ * Todas as propriedades do método equals devem estar no método hashCode.
+ *
+ * Existe herança? A classe Pai implementou equals? Será que composição não faria mais sentido?
+ *
+ * Considere gerar equals e hashCode utilizando o atalho: "alt + shift + s, h"
+ */
+@Override
+public boolean equals(Object obj) {
+	// Está preocupado com performance? Leia o livro novamente
+	if (!(obj instanceof ${class_name})) {
+		return false;
+	}
+	${class_name} other = (${class_name}) obj;
+
+	return Objects.equals(atributo1, other.atributo1) &amp;&amp; Objects.equals(atributo2, other.atributo2);
+}
+
+/*
+ * Todas as propriedades do método hashCode devem estar no método equals.
+ *
+ * É uma classe imutável? Considere ter uma propriedade final do hashCode.
+ */
+@Override
+public int hashCode() {
+	// Está preocupado com performance? Leia o livro novamente
+	return Objects.hash(atributo1, atributo2);
+}</template><template autoinsert="true" context="java" deleted="false" description="Cria uma classe utilizando Builder" enabled="true" name="vNewBuilder">${package_declaration}
 
 public class ${class_name} ${line_selection}${cursor} {
 
-	private ${Tipo1} ${nome1};
-	private ${Tipo2} ${nome2};
+	// Atalho para gerar os gets: "alt + shift + s, r"
+	private final ${Tipo1} ${nome1};
+	private final ${Tipo2} ${nome2};
 
 	public static class Builder {
 	
@@ -39,9 +74,11 @@ public class ${class_name} ${line_selection}${cursor} {
 
 public class ${class_name} ${line_selection}${cursor} {
 
-	private ${Tipo1} ${nome1};
 
-	private ${Tipo2} ${nome2};
+	// Atalho para gerar os gets: "alt + shift + s, r"
+	private final ${Tipo1} ${nome1};
+
+	private final ${Tipo2} ${nome2};
 
 	private ${class_name}(${Tipo1} ${nome1}, ${Tipo2} ${nome2}) {
 		this.${nome1} = ${nome1};
