@@ -109,4 +109,20 @@ public enum ${class_name} ${line_selection}${cursor} {
 
 	INSTANCE;
 
+}</template><template autoinsert="true" context="java" deleted="false" description="Cria um toString" enabled="true" name="vToString">/*
+ * Deve ter atributos pertinentes do Objeto. Tem um método equals? Os atributos de lá são um bom Norte.
+ * 
+ * Atalho do eclipse: "alt + shift + s, s"
+ * 
+ * O retorno do toString segue um padrão bem definido do formato? ex: (61) 91111-1234? 
+ * Cuidado, tome cuidado se futuramente tiver que alterar!
+ * Crie um método public static ${class_name} valueOf(String value)
+ * 
+ *
+ *
+ */
+@Override
+public String toString() {
+	// Leia os comentários acima
+	return "${class_name} [atributo1=" + atributo1 + ", atributo2=" + atributo2 + "]";
 }</template></templates>
