@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="Cria um método equals" enabled="true" name="vEqualsHashcode">/*
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="cria o método clone" enabled="true" name="vClone">
+	/*
+	 * Lembre de implementar Cloneable
+	 * 
+	 * Sua classe é imutável? Se sim, não faz sentido ter um método clone
+	 * 
+	 * Sua classe tem atributos primitivos ou Objetos imutáveis? Fique tranquilo, vai funcionar
+	 * 
+	 * Sua classe tem objetos mutáveis? Será necessário mais código abaixo, Leia o livro e relembre.
+	 * 
+	 * Retorno: 
+	 * - Não pode ser null
+	 * - this.clone().getClass() == this.getClass()
+	 * - this.clone().equals(this) (Não é obrigatório, mas é muito indicado)
+	 *
+	 * Sugestões para evitar método clone: 
+	 * - Construtor de cópia: new ${class_name} (${class_name} obj);
+	 * - static factory: ${class_name}.newInstance(${class_name} obj);
+	 */
+	@Override
+	public ${class_name} clone() {
+		try {
+			return (${class_name}) super.clone();
+		} catch (CloneNotSupportedException e) {
+			throw new AssertionError("Erro ao clonar", e);
+		}
+	}</template><template autoinsert="true" context="java" deleted="false" description="Cria um método equals" enabled="true" name="vEqualsHashcode">/*
  * Propriedades deste método:
  * 1. Reflexivo
  * 2. Simétrico
