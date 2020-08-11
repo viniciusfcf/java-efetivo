@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="cria o método clone" enabled="true" name="vClone">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="Cria o método clone" enabled="true" name="vClone">
 	/*
 	 * Lembre de implementar Cloneable
 	 * 
@@ -24,6 +24,36 @@
 		} catch (CloneNotSupportedException e) {
 			throw new AssertionError("Erro ao clonar", e);
 		}
+	}</template><template autoinsert="true" context="java" deleted="false" description="Cria o método compareTo" enabled="true" name="vCompareTo">/*
+	 * Implemente a classe Comparable
+	 * 
+	 * É indicado para objetos que têm uma ordem Natural.
+	 * 
+	 * Não tem ordem natural? Talvez seja melhor utilizar um Comparator
+	 * 
+	 * Regras:
+	 * sgn(x.compareTo(y)) == -sgn(y.compareTo(x))
+	 * x.compareTo(y) &gt; 0 &amp;&amp; y.compareTo(z) &gt; 0? Então x.compareTo(z) &gt; 0
+	 * x.compareTo(y) == 0? Então sgn(x.compareTo(z)) == sgn(y.compareTo(z))
+	 * x.compareTo(y) == 0? Então x.equals(y). (RECOMENDADO, não obrigatório)
+	 * 
+	 * Vai comparatar tipos primitivos, utilize o método compare, ex: Integer.compare(numero1, other.numero1);
+	 * 
+	 * Retorno:
+	 * -1 se this for menor
+	 * 0 se forem iguais
+	 * +1 se this for maior
+	 *
+	 */
+	@Override
+	public int compareTo(${class_name} other) {
+		//atributo1 implements Comparable
+		int result = ${atributo1}.compareTo(other.${atributo1});
+		if (result == 0) {
+			//atributo2 é int
+			result = Integer.compare(${atributo2}, other.${atributo2});
+		}
+		return result;
 	}</template><template autoinsert="true" context="java" deleted="false" description="Cria um método equals" enabled="true" name="vEqualsHashcode">/*
  * Propriedades deste método:
  * 1. Reflexivo
