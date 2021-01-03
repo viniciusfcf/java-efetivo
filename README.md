@@ -45,3 +45,8 @@ Desvantagens dos padrões de nomenclatura:
 1. Erros de digitação provocam erros silenciosos
 2. Não é possível assegurar que sejam utilizados nos elementos certos da aplicação.
 3. Não fornecem uma boa maneira de associar os valores de parâmetros aos elementos do programa
+   
+## Item 41: Use as interfaces marcadoras para definir tipos
+1. Se uma anotação for do tipo Type, avalie se não deveria ser uma interface marcadora.
+2. Caso a anotação seja aplicada apenas as implementações de uma classe específica, interface marcadora é ideal.
+3. Vai existir um ou mais métodos que deve receber apenas um tipo? Utilize Interface Marcadora.
