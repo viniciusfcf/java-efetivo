@@ -50,3 +50,19 @@ Desvantagens dos padrões de nomenclatura:
 1. Se uma anotação for do tipo Type, avalie se não deveria ser uma interface marcadora.
 2. Caso a anotação seja aplicada apenas as implementações de uma classe específica, interface marcadora é ideal.
 3. Vai existir um ou mais métodos que deve receber apenas um tipo? Utilize Interface Marcadora.
+
+## Item 42: Prefira os lambdas às classes anônimas
+
+## Item 43: Dê preferência às referências para métodos em vez dos lambdas
+
+| Tipo de referência        | Exemplo| Lambda correspondente  |
+| ------------- |:-------------:| -----:|
+| Estática      | Integer::parseInt | str -> Integer.parseInt(str) |
+| Limitada      | Instant.now()::isAfter      |   Instant then = Instant.now(); t -> then.isAfter(t) |
+| Ilimitada | String::toLowerCase      | str -> str.toLowerCase() |
+| Construtor de classe      | TreeMap<K,V>::new |   () -> new TreeMap<K,V> |
+| Construtor de array | int[]::new      |   len -> new int[len] |
+
+## Item 44: Prefira o uso das interfaces funcionais padrão
+
+Ex: UnaryOperator, BinaryOperator, Predicate, Function, Supplier, Consumer.
